@@ -3,6 +3,7 @@ import javax.swing.border.LineBorder;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Scanner;
@@ -538,11 +539,13 @@ public class DataStructures {
 					if (readSearchFile) searchArr.setEnabled(true);
 					break;
 				case "merge sort ints bottom up":
-					mergeSort(0);
+					botUpMergeSort(mergeSort1Values);
 					if (readSearchFile) searchMergeSort1.setEnabled(true);
 					break;
 				case "merge sort ints top down":
-					//mergeSort(1);
+					int[] arr = Arrays.copyOf(sortDataArr, sortDataArr.length);
+					int[] workArr = Arrays.copyOf(arr, arr.length);
+					topDownMergeSort(arr, 0, arr.length, workArr);
 					if (readSearchFile) searchMergeSort2.setEnabled(true);
 					break;
 				case "quick sort ints":
@@ -550,7 +553,7 @@ public class DataStructures {
 					if (readSearchFile) searchQuickSort.setEnabled(true);
 					break;
 				case "search sorted ints":
-					searchInts();
+					searchInts(sortedValues,searchIntsTime);
 					break;
 				case "search bst":
 					searchBinarySearchTree();
@@ -574,7 +577,7 @@ public class DataStructures {
 					searchArray();
 					break;
 				case "search merge sort ints bottom up":
-					searchMergeSort(0);
+					searchInts(mergeSort1Values,searchMergeSort1Time);
 					break;
 				case "search merge sort ints top down":
 					//searchMegeSort(1);
@@ -664,26 +667,60 @@ public class DataStructures {
 		long t1 = System.currentTimeMillis();
 		addArrTime.setText((t1-t0) + "ms");
 	}
-	private static void mergeSort(int type) {
+	private static void botUpMergeSort(int[] arr) {
+		arr = Arrays.copyOf(sortDataArr, sortDataArr.length);
 		long t0 = System.currentTimeMillis();
-		if (type == 0) {
-			
-		} else {
-
+		int[] workArr =  Arrays.copyOf(arr, arr.length);
+		for (int width = 1; width < arr.length; width = 2*width) {
+			for (int i = 0;  i < arr.length; i = i + 2*width) {
+				int left = i;
+				int mid = Math.min(i + width,arr.length);
+				int end = Math.min(i + 2*width,arr.length);
+				botUpMerge(arr,left,mid,end,workArr);
+			}
+			arr = Arrays.copyOf(workArr, workArr.length);
+		}
+		long t1 = System.currentTimeMillis();
+		mergeSort1Values = Arrays.copyOf(arr, arr.length);
+		mergeSort1Time.setText((t1-t0) + "ms");
+	}
+	private static void botUpMerge(int[] arrA, int left, int mid, int end, int[] arrB) {
+		int i = left, j = mid;
+		for (int k = left; k < end; k++) {
+			if ((i < mid) && ((j >= end) || (arrA[i] <= arrA[j]))) {
+				arrB[k] = arrA[i];
+				i++;
+			} else {
+				arrB[k] = arrA[j];
+				j++;
+			}
 		}
 	}
-	private static int searchInts() {
+	// private static void topDownMergeSort(int[] arrA, int begin, int end, int[] arrB) {
+	// 	long t0 = System.currentTimeMillis();
+	// 	if (end - begin <= 1) return;
+	// 	int mid = (begin + end) / 2;
+	// 	topDownMergeSort(arrA, begin, mid, arrB);
+	// 	topDownMergeSort(arrA, mid, end, arrB);
+	// }
+	// private static void topDownMerge(int[] arrA, int begin, int end, int[] arrB) {
+	// 	int i  = begin, j =  end;
+	// 	for (int k  = begin, k < end; k++) {
+			
+	// 	}
+	// }
+	private static int searchInts(int[] arr, JLabel label) {
 		long t0 = System.currentTimeMillis();
 		int count = 0; 
 		for (int i = 0; i < searchDataArr.length; i++) {
 			int val = searchDataArr[i];
 			int bot = 0;
-			int top = sortedValues.length - 1;
+			int top = arr.length - 1;
 			while (bot <= top) {
 				int mid = (top + bot)/2;
-				if (val < sortedValues[mid]) {
+				if (val < arr[mid]) {
 					top = mid - 1;
-				} else if (val > sortedValues[mid]) {
+				} else if (val > arr[mid]) {
 					bot = mid + 1;
 				} else {
 					count++;
@@ -692,7 +729,7 @@ public class DataStructures {
 			}
 		}
 		long t1 = System.currentTimeMillis();
-		searchIntsTime.setText(count + " / " + (t1-t0) + "ms");
+		label.setText(count + " / " + (t1-t0) + "ms");
 		return count;
 	}
 	private static int searchBinarySearchTree() {
