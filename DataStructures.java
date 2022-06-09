@@ -27,6 +27,12 @@ public class DataStructures {
 	private static JLabel addSortArrListTime = new JLabel("no result");
 	private static JButton addArr = new JButton("add to array");
 	private static JLabel addArrTime = new JLabel("no result");
+	private static JButton mergeSort1 = new JButton("merge sort ints bottom up");
+    private static JLabel mergeSort1Time = new JLabel("no result");
+    private static JButton mergeSort2 = new JButton("merge sort ints top down");
+    private static JLabel mergeSort2Time = new JLabel("no result");
+    private static JButton quickSort = new JButton("quick sort ints");
+    private static JLabel quickSortTime = new JLabel("no result");
 	
 	private static JButton searchInts = new JButton("search sorted ints");
 	private static JLabel searchIntsTime = new JLabel("no result");
