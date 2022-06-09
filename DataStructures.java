@@ -69,6 +69,9 @@ public class DataStructures {
 	private static ArrayList<Integer> sortArrListValues = new ArrayList<>();
 	private static BinarySearchTree bst = new BinarySearchTree();
 	private static int[] unsortedValues;
+	private static int[] mergeSort1Values;
+	private static int[] mergeSort2Values;
+	private static int[] quickSortValues;
 	private static boolean readSearchFile = false;
 	public static void main(String[] args) {
 		JFrame gui = new JFrame();
@@ -387,6 +390,9 @@ public class DataStructures {
 		ButtonActionListener addArrListListener = new ButtonActionListener(addArrList);
 		ButtonActionListener addSortArrListListener = new ButtonActionListener(addSortArrList);
 		ButtonActionListener addArrListener = new ButtonActionListener(addArr);
+		ButtonActionListener mergeSort1Listener = new ButtonActionListener(mergeSort1);
+		ButtonActionListener mergeSort2Listener = new ButtonActionListener(mergeSort2);
+		ButtonActionListener quickSortListener = new ButtonActionListener(quickSort);
 		ButtonActionListener searchIntsListener = new ButtonActionListener(searchInts);
 		ButtonActionListener searchBstListener = new ButtonActionListener(searchBst);
 		ButtonActionListener searchTreesetListener = new ButtonActionListener(searchTreeset);
@@ -395,6 +401,9 @@ public class DataStructures {
 		ButtonActionListener searchArrListListener = new ButtonActionListener(searchArrList);
 		ButtonActionListener searchSortArrListListener = new ButtonActionListener(searchSortArrList);
 		ButtonActionListener searchArrListener = new ButtonActionListener(searchArr);
+		ButtonActionListener searchMergeSort1Listener = new ButtonActionListener(searchMergeSort1);
+		ButtonActionListener searchMergeSort2Listener = new ButtonActionListener(searchMergeSort2);
+		ButtonActionListener searchQuickSortListener = new ButtonActionListener(searchQuickSort);
 
 		sortInts.addActionListener(sortIntsListener);
 		addBst.addActionListener(addBstListener);
@@ -404,6 +413,9 @@ public class DataStructures {
 		addArrList.addActionListener(addArrListListener);
 		addSortArrList.addActionListener(addSortArrListListener);
 		addArr.addActionListener(addArrListener);
+		mergeSort1.addActionListener(mergeSort1Listener);
+		mergeSort2.addActionListener(mergeSort2Listener);
+		quickSort.addActionListener(quickSortListener);
 		searchInts.addActionListener(searchIntsListener);
 		searchBst.addActionListener(searchBstListener);
 		searchTreeset.addActionListener(searchTreesetListener);
@@ -412,8 +424,10 @@ public class DataStructures {
 		searchArrList.addActionListener(searchArrListListener);
 		searchSortArrList.addActionListener(searchSortArrListListener);
 		searchArr.addActionListener(searchArrListener);
-		
-		
+		searchMergeSort1.addActionListener(searchMergeSort1Listener);
+		searchMergeSort2.addActionListener(searchMergeSort2Listener);
+		searchQuickSort.addActionListener(searchQuickSortListener);
+
 		gui.setContentPane(mainPanel);
 		gui.validate();
 		gui.setVisible(true);
@@ -448,6 +462,9 @@ public class DataStructures {
 					addArrList.setEnabled(true);
 					addSortArrList.setEnabled(true);
 					addArr.setEnabled(true);
+					mergeSort1.setEnabled(true);
+					mergeSort2.setEnabled(true);
+					quickSort.setEnabled(true);
 				} catch (Exception a) {}
 			}
 			if (m.getText().equals("Read search file")) {
@@ -468,6 +485,9 @@ public class DataStructures {
 					if (!addArrListTime.getText().equals("no result")) searchArrList.setEnabled(true);
 					if (!addSortArrListTime.getText().equals("no result")) searchSortArrList.setEnabled(true);
 					if (!addArrTime.getText().equals("no result")) searchArr.setEnabled(true);
+					if (!mergeSort1Time.getText().equals("no result")) searchMergeSort1.setEnabled(true);
+					if (!mergeSort2Time.getText().equals("no result")) searchMergeSort2.setEnabled(true);
+					if (!quickSortTime.getText().equals("no result")) searchQuickSort.setEnabled(true);
 				} catch (Exception a) {}
 			}
 			if (m.getText().equals("Exit")) {
@@ -517,6 +537,18 @@ public class DataStructures {
 					addToArray();
 					if (readSearchFile) searchArr.setEnabled(true);
 					break;
+				case "merge sort ints bottom up":
+					mergeSort(0);
+					if (readSearchFile) searchMergeSort1.setEnabled(true);
+					break;
+				case "merge sort ints top down":
+					//mergeSort(1);
+					if (readSearchFile) searchMergeSort2.setEnabled(true);
+					break;
+				case "quick sort ints":
+					//quickSort();
+					if (readSearchFile) searchQuickSort.setEnabled(true);
+					break;
 				case "search sorted ints":
 					searchInts();
 					break;
@@ -540,6 +572,15 @@ public class DataStructures {
 					break;
 				case "search array":
 					searchArray();
+					break;
+				case "search merge sort ints bottom up":
+					searchMergeSort(0);
+					break;
+				case "search merge sort ints top down":
+					//searchMegeSort(1);
+					break;
+				case "search quick sort ints":
+					//searchQuickSort();
 					break;
 			}
 		}
@@ -622,6 +663,14 @@ public class DataStructures {
 		}
 		long t1 = System.currentTimeMillis();
 		addArrTime.setText((t1-t0) + "ms");
+	}
+	private static void mergeSort(int type) {
+		long t0 = System.currentTimeMillis();
+		if (type == 0) {
+			
+		} else {
+
+		}
 	}
 	private static int searchInts() {
 		long t0 = System.currentTimeMillis();
