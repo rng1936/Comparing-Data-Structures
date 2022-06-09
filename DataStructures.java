@@ -50,6 +50,12 @@ public class DataStructures {
 	private static JLabel searchSortArrListTime = new JLabel("no result");
 	private static JButton searchArr = new JButton("search array");
 	private static JLabel searchArrTime = new JLabel("no result");
+	private static JButton searchMergeSort1 = new JButton("search merge sort ints bottom up");
+    private static JLabel searchMergeSort1Time = new JLabel("no result");
+    private static JButton searchMergeSort2 = new JButton("search merge sort ints top down");
+    private static JLabel searchMergeSort2Time = new JLabel("no result");
+    private static JButton searchQuickSort = new JButton("search quick sort ints");
+    private static JLabel searchQuickSortTime = new JLabel("no result");
 	
 	private static ArrayList<Integer> sortData = new ArrayList<>();
 	private static ArrayList<Integer> searchData = new ArrayList<>();
@@ -121,6 +127,15 @@ public class DataStructures {
 		leftButtonPanel.add(addArr);
 		addArr.setEnabled(false);
 		leftButtonPanel.add(addArrTime);
+		leftButtonPanel.add(mergeSort1);
+		mergeSort1.setEnabled(false);
+		leftButtonPanel.add(mergeSort1Time);
+		leftButtonPanel.add(mergeSort2);
+		mergeSort2.setEnabled(false);
+		leftButtonPanel.add(mergeSort2Time);
+		leftButtonPanel.add(quickSort);
+		quickSort.setEnabled(false);
+		leftButtonPanel.add(quickSortTime);
 		
 		GridBagConstraints leftConstraints = new GridBagConstraints();
 		leftConstraints.weightx = 1;
@@ -191,6 +206,30 @@ public class DataStructures {
 		leftConstraints.gridy = 7;
 		leftConstraints.gridwidth = GridBagConstraints.REMAINDER;
 		leftLayout.setConstraints(addArrTime, leftConstraints);
+		leftConstraints.gridx = 0;
+		leftConstraints.gridy = 8;
+		leftConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		leftLayout.setConstraints(mergeSort1, leftConstraints);
+		leftConstraints.gridx = 1;
+		leftConstraints.gridy = 8;
+		leftConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		leftLayout.setConstraints(mergeSort1Time, leftConstraints);
+		leftConstraints.gridx = 0;
+		leftConstraints.gridy = 9;
+		leftConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		leftLayout.setConstraints(mergeSort2, leftConstraints);
+		leftConstraints.gridx = 1;
+		leftConstraints.gridy = 9;
+		leftConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		leftLayout.setConstraints(mergeSort2Time, leftConstraints);
+		leftConstraints.gridx = 0;
+		leftConstraints.gridy = 10;
+		leftConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		leftLayout.setConstraints(quickSort, leftConstraints);
+		leftConstraints.gridx = 1;
+		leftConstraints.gridy = 10;
+		leftConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		leftLayout.setConstraints(quickSortTime, leftConstraints);
 		
 		JPanel rightButtonPanel = new JPanel();
 		rightButtonPanel.setBorder(new LineBorder(new Color(48,213,200,255), 2));
@@ -223,6 +262,15 @@ public class DataStructures {
 		rightButtonPanel.add(searchArr);
 		searchArr.setEnabled(false);
 		rightButtonPanel.add(searchArrTime);
+		rightButtonPanel.add(searchMergeSort1);
+		searchMergeSort1.setEnabled(false);
+		rightButtonPanel.add(searchMergeSort1Time);
+		rightButtonPanel.add(searchMergeSort2);
+		searchMergeSort2.setEnabled(false);
+		rightButtonPanel.add(searchMergeSort2Time);
+		rightButtonPanel.add(searchQuickSort);
+		searchQuickSort.setEnabled(false);
+		rightButtonPanel.add(searchQuickSortTime);
 
 		GridBagConstraints rightConstraints = new GridBagConstraints();
 		rightConstraints.weightx = 1;
@@ -293,6 +341,30 @@ public class DataStructures {
 		rightConstraints.gridy = 7;
 		rightConstraints.gridwidth = GridBagConstraints.REMAINDER;
 		rightLayout.setConstraints(searchArrTime, rightConstraints);
+		rightConstraints.gridx = 0;
+		rightConstraints.gridy = 8;
+		rightConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		rightLayout.setConstraints(searchMergeSort1, rightConstraints);
+		rightConstraints.gridx = 1;
+		rightConstraints.gridy = 8;
+		rightConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		rightLayout.setConstraints(searchMergeSort1Time, rightConstraints);
+		rightConstraints.gridx = 0;
+		rightConstraints.gridy = 9;
+		rightConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		rightLayout.setConstraints(searchMergeSort2, rightConstraints);
+		rightConstraints.gridx = 1;
+		rightConstraints.gridy = 9;
+		rightConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		rightLayout.setConstraints(searchMergeSort2Time, rightConstraints);
+		rightConstraints.gridx = 0;
+		rightConstraints.gridy = 10;
+		rightConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		rightLayout.setConstraints(searchQuickSort, rightConstraints);
+		rightConstraints.gridx = 1;
+		rightConstraints.gridy = 10;
+		rightConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		rightLayout.setConstraints(searchQuickSortTime, rightConstraints);
 		
 		JPanel mainButtonPanel = new JPanel();
 		mainButtonPanel.setBorder(new LineBorder(new Color(0,0,0,255), 2));
