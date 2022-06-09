@@ -30,11 +30,7 @@ public class DataStructures {
 	private static JLabel addArrTime = new JLabel("no result");
 	private static JButton mergeSort1 = new JButton("merge sort ints bottom up");
     private static JLabel mergeSort1Time = new JLabel("no result");
-    private static JButton mergeSort2 = new JButton("merge sort ints top down");
-    private static JLabel mergeSort2Time = new JLabel("no result");
-    private static JButton quickSort = new JButton("quick sort ints");
-    private static JLabel quickSortTime = new JLabel("no result");
-	
+
 	private static JButton searchInts = new JButton("search sorted ints");
 	private static JLabel searchIntsTime = new JLabel("no result");
 	private static JButton searchBst = new JButton("search bst");
@@ -53,10 +49,6 @@ public class DataStructures {
 	private static JLabel searchArrTime = new JLabel("no result");
 	private static JButton searchMergeSort1 = new JButton("search merge sort ints bottom up");
     private static JLabel searchMergeSort1Time = new JLabel("no result");
-    private static JButton searchMergeSort2 = new JButton("search merge sort ints top down");
-    private static JLabel searchMergeSort2Time = new JLabel("no result");
-    private static JButton searchQuickSort = new JButton("search quick sort ints");
-    private static JLabel searchQuickSortTime = new JLabel("no result");
 	
 	private static ArrayList<Integer> sortData = new ArrayList<>();
 	private static ArrayList<Integer> searchData = new ArrayList<>();
@@ -71,8 +63,6 @@ public class DataStructures {
 	private static BinarySearchTree bst = new BinarySearchTree();
 	private static int[] unsortedValues;
 	private static int[] mergeSort1Values;
-	private static int[] mergeSort2Values;
-	private static int[] quickSortValues;
 	private static boolean readSearchFile = false;
 	public static void main(String[] args) {
 		JFrame gui = new JFrame();
@@ -134,12 +124,6 @@ public class DataStructures {
 		leftButtonPanel.add(mergeSort1);
 		mergeSort1.setEnabled(false);
 		leftButtonPanel.add(mergeSort1Time);
-		leftButtonPanel.add(mergeSort2);
-		mergeSort2.setEnabled(false);
-		leftButtonPanel.add(mergeSort2Time);
-		leftButtonPanel.add(quickSort);
-		quickSort.setEnabled(false);
-		leftButtonPanel.add(quickSortTime);
 		
 		GridBagConstraints leftConstraints = new GridBagConstraints();
 		leftConstraints.weightx = 1;
@@ -218,22 +202,6 @@ public class DataStructures {
 		leftConstraints.gridy = 8;
 		leftConstraints.gridwidth = GridBagConstraints.REMAINDER;
 		leftLayout.setConstraints(mergeSort1Time, leftConstraints);
-		leftConstraints.gridx = 0;
-		leftConstraints.gridy = 9;
-		leftConstraints.gridwidth = GridBagConstraints.REMAINDER;
-		leftLayout.setConstraints(mergeSort2, leftConstraints);
-		leftConstraints.gridx = 1;
-		leftConstraints.gridy = 9;
-		leftConstraints.gridwidth = GridBagConstraints.REMAINDER;
-		leftLayout.setConstraints(mergeSort2Time, leftConstraints);
-		leftConstraints.gridx = 0;
-		leftConstraints.gridy = 10;
-		leftConstraints.gridwidth = GridBagConstraints.REMAINDER;
-		leftLayout.setConstraints(quickSort, leftConstraints);
-		leftConstraints.gridx = 1;
-		leftConstraints.gridy = 10;
-		leftConstraints.gridwidth = GridBagConstraints.REMAINDER;
-		leftLayout.setConstraints(quickSortTime, leftConstraints);
 		
 		JPanel rightButtonPanel = new JPanel();
 		rightButtonPanel.setBorder(new LineBorder(new Color(48,213,200,255), 2));
@@ -269,12 +237,6 @@ public class DataStructures {
 		rightButtonPanel.add(searchMergeSort1);
 		searchMergeSort1.setEnabled(false);
 		rightButtonPanel.add(searchMergeSort1Time);
-		rightButtonPanel.add(searchMergeSort2);
-		searchMergeSort2.setEnabled(false);
-		rightButtonPanel.add(searchMergeSort2Time);
-		rightButtonPanel.add(searchQuickSort);
-		searchQuickSort.setEnabled(false);
-		rightButtonPanel.add(searchQuickSortTime);
 
 		GridBagConstraints rightConstraints = new GridBagConstraints();
 		rightConstraints.weightx = 1;
@@ -353,22 +315,6 @@ public class DataStructures {
 		rightConstraints.gridy = 8;
 		rightConstraints.gridwidth = GridBagConstraints.REMAINDER;
 		rightLayout.setConstraints(searchMergeSort1Time, rightConstraints);
-		rightConstraints.gridx = 0;
-		rightConstraints.gridy = 9;
-		rightConstraints.gridwidth = GridBagConstraints.REMAINDER;
-		rightLayout.setConstraints(searchMergeSort2, rightConstraints);
-		rightConstraints.gridx = 1;
-		rightConstraints.gridy = 9;
-		rightConstraints.gridwidth = GridBagConstraints.REMAINDER;
-		rightLayout.setConstraints(searchMergeSort2Time, rightConstraints);
-		rightConstraints.gridx = 0;
-		rightConstraints.gridy = 10;
-		rightConstraints.gridwidth = GridBagConstraints.REMAINDER;
-		rightLayout.setConstraints(searchQuickSort, rightConstraints);
-		rightConstraints.gridx = 1;
-		rightConstraints.gridy = 10;
-		rightConstraints.gridwidth = GridBagConstraints.REMAINDER;
-		rightLayout.setConstraints(searchQuickSortTime, rightConstraints);
 		
 		JPanel mainButtonPanel = new JPanel();
 		mainButtonPanel.setBorder(new LineBorder(new Color(0,0,0,255), 2));
@@ -392,8 +338,6 @@ public class DataStructures {
 		ButtonActionListener addSortArrListListener = new ButtonActionListener(addSortArrList);
 		ButtonActionListener addArrListener = new ButtonActionListener(addArr);
 		ButtonActionListener mergeSort1Listener = new ButtonActionListener(mergeSort1);
-		ButtonActionListener mergeSort2Listener = new ButtonActionListener(mergeSort2);
-		ButtonActionListener quickSortListener = new ButtonActionListener(quickSort);
 		ButtonActionListener searchIntsListener = new ButtonActionListener(searchInts);
 		ButtonActionListener searchBstListener = new ButtonActionListener(searchBst);
 		ButtonActionListener searchTreesetListener = new ButtonActionListener(searchTreeset);
@@ -403,8 +347,6 @@ public class DataStructures {
 		ButtonActionListener searchSortArrListListener = new ButtonActionListener(searchSortArrList);
 		ButtonActionListener searchArrListener = new ButtonActionListener(searchArr);
 		ButtonActionListener searchMergeSort1Listener = new ButtonActionListener(searchMergeSort1);
-		ButtonActionListener searchMergeSort2Listener = new ButtonActionListener(searchMergeSort2);
-		ButtonActionListener searchQuickSortListener = new ButtonActionListener(searchQuickSort);
 
 		sortInts.addActionListener(sortIntsListener);
 		addBst.addActionListener(addBstListener);
@@ -415,8 +357,6 @@ public class DataStructures {
 		addSortArrList.addActionListener(addSortArrListListener);
 		addArr.addActionListener(addArrListener);
 		mergeSort1.addActionListener(mergeSort1Listener);
-		mergeSort2.addActionListener(mergeSort2Listener);
-		quickSort.addActionListener(quickSortListener);
 		searchInts.addActionListener(searchIntsListener);
 		searchBst.addActionListener(searchBstListener);
 		searchTreeset.addActionListener(searchTreesetListener);
@@ -426,8 +366,6 @@ public class DataStructures {
 		searchSortArrList.addActionListener(searchSortArrListListener);
 		searchArr.addActionListener(searchArrListener);
 		searchMergeSort1.addActionListener(searchMergeSort1Listener);
-		searchMergeSort2.addActionListener(searchMergeSort2Listener);
-		searchQuickSort.addActionListener(searchQuickSortListener);
 
 		gui.setContentPane(mainPanel);
 		gui.validate();
@@ -464,8 +402,6 @@ public class DataStructures {
 					addSortArrList.setEnabled(true);
 					addArr.setEnabled(true);
 					mergeSort1.setEnabled(true);
-					mergeSort2.setEnabled(true);
-					quickSort.setEnabled(true);
 				} catch (Exception a) {}
 			}
 			if (m.getText().equals("Read search file")) {
@@ -487,8 +423,6 @@ public class DataStructures {
 					if (!addSortArrListTime.getText().equals("no result")) searchSortArrList.setEnabled(true);
 					if (!addArrTime.getText().equals("no result")) searchArr.setEnabled(true);
 					if (!mergeSort1Time.getText().equals("no result")) searchMergeSort1.setEnabled(true);
-					if (!mergeSort2Time.getText().equals("no result")) searchMergeSort2.setEnabled(true);
-					if (!quickSortTime.getText().equals("no result")) searchQuickSort.setEnabled(true);
 				} catch (Exception a) {}
 			}
 			if (m.getText().equals("Exit")) {
@@ -542,16 +476,6 @@ public class DataStructures {
 					botUpMergeSort(mergeSort1Values);
 					if (readSearchFile) searchMergeSort1.setEnabled(true);
 					break;
-				case "merge sort ints top down":
-					int[] arr = Arrays.copyOf(sortDataArr, sortDataArr.length);
-					int[] workArr = Arrays.copyOf(arr, arr.length);
-					topDownMergeSort(arr, 0, arr.length, workArr);
-					if (readSearchFile) searchMergeSort2.setEnabled(true);
-					break;
-				case "quick sort ints":
-					//quickSort();
-					if (readSearchFile) searchQuickSort.setEnabled(true);
-					break;
 				case "search sorted ints":
 					searchInts(sortedValues,searchIntsTime);
 					break;
@@ -578,12 +502,6 @@ public class DataStructures {
 					break;
 				case "search merge sort ints bottom up":
 					searchInts(mergeSort1Values,searchMergeSort1Time);
-					break;
-				case "search merge sort ints top down":
-					//searchMegeSort(1);
-					break;
-				case "search quick sort ints":
-					//searchQuickSort();
 					break;
 			}
 		}
@@ -696,19 +614,6 @@ public class DataStructures {
 			}
 		}
 	}
-	// private static void topDownMergeSort(int[] arrA, int begin, int end, int[] arrB) {
-	// 	long t0 = System.currentTimeMillis();
-	// 	if (end - begin <= 1) return;
-	// 	int mid = (begin + end) / 2;
-	// 	topDownMergeSort(arrA, begin, mid, arrB);
-	// 	topDownMergeSort(arrA, mid, end, arrB);
-	// }
-	// private static void topDownMerge(int[] arrA, int begin, int end, int[] arrB) {
-	// 	int i  = begin, j =  end;
-	// 	for (int k  = begin, k < end; k++) {
-			
-	// 	}
-	// }
 	private static int searchInts(int[] arr, JLabel label) {
 		long t0 = System.currentTimeMillis();
 		int count = 0; 
